@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tangos de Dionisio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html">Tangos de Dionisio</a>
+    <nav class="navigation">
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+      <ul>
+        <li class="nav-item"><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li class="nav-item"><a href="productos.html">Productos</a></li>
+        <li class="nav-item"><a href="contactanos.html">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Hero -->
+  <section class="hero">
+    <img src="tango-bottle.jpeg" alt="Tangos de Dionisio - Botella de vino" class="hero-image">
+    <div class="hero-text">
+      Cuenta la leyenda que Dionisio descubrió la magia de la vid. Desde entonces, cada botella guarda historia, mito y sabor.
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Teléfono:</strong> +54 11 1234-5678</p>
+    <p><strong>Síguenos:</strong> 
+       |
+      <a href="https://www.instagram.com/tangosdedionisio?igsh=enZnZm85cnU1cTJi" target="_blank">Instagram</a> |
+    </p>
+    <!-- Agrega esto en el <footer> de tu index.html -->
+<footer>
+  <p>
+    <a href="presentacion.html" target="_blank" style="color:#8b2f43; font-weight:bold; text-decoration:none; border:1px solid #8b2f43; border-radius:6px; padding:6px 18px; background:#fbeee6;">
+      Presentación
+    </a>
+  </p>
+ 
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Pop-in de la imagen hero con carrusel -->
+  <div id="modal-hero" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.4); backdrop-filter: blur(6px); z-index:99999; align-items:center; justify-content:center;">
+    <button id="modal-hero-prev" style="position:absolute; left:40px; top:50%; transform:translateY(-50%); font-size:2.5rem; background:none; border:none; color:#fff; cursor:pointer; z-index:100001;">&#8592;</button>
+    <img id="modal-hero-img" class="fade-img visible" src="tango-bottle.jpeg" alt="Tangos de Dionisio - Botella de vino"
+    style="max-width:80vw; max-height:80vh; border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.5); transition:transform 0.3s;">
+    <button id="modal-hero-next" style="position:absolute; right:40px; top:50%; transform:translateY(-50%); font-size:2.5rem; background:none; border:none; color:#fff; cursor:pointer; z-index:100001;">&#8594;</button>
+    <span id="modal-hero-close" style="position:absolute; top:30px; right:40px; font-size:2.5rem; color:#fff; cursor:pointer; font-weight:bold; z-index:100000;">&times;</span>
+  </div>
+  <script>
+    // Lista de imágenes para el carrusel
+    const heroImages = [
+      { src: "tango-bottle.jpeg", alt: "Tangos de Dionisio - Botella de vino" },
+      { src: "hijo-de-osiris.jpeg", alt: "Hijo de Osiris - Vino tinto" },
+      { src: "imagenscroll.jpeg", alt: "imagenscroll" },
+      { src: "imagen.jpg", alt: "Tangos de Dionisio - Botella de vino" }
+      // Puedes agregar más imágenes aquí
+    ];
+    let currentHeroIndex = 0;
+
+    // Abrir modal al hacer click en la imagen principal
+    document.querySelector('.hero-image').addEventListener('click', function() {
+      currentHeroIndex = 0;
+      updateHeroModal();
+      document.getElementById('modal-hero').style.display = 'flex';
+    });
+
+    // Cerrar modal
+    document.getElementById('modal-hero-close').onclick = function() {
+      document.getElementById('modal-hero').style.display = 'none';
+    };
+    document.getElementById('modal-hero').onclick = function(e) {
+      if (e.target === this) this.style.display = 'none';
+    };
+
+    // Flechas de navegación
+    document.getElementById('modal-hero-prev').onclick = function(e) {
+      e.stopPropagation();
+      currentHeroIndex = (currentHeroIndex - 1 + heroImages.length) % heroImages.length;
+      updateHeroModal();
+    };
+    document.getElementById('modal-hero-next').onclick = function(e) {
+      e.stopPropagation();
+      currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+      updateHeroModal();
+    };
+
+    function updateHeroModal() {
+      const img = document.getElementById('modal-hero-img');
+      img.src = heroImages[currentHeroIndex].src;
+      img.alt = heroImages[currentHeroIndex].alt;
+    }
+  </script>
+
+  <!-- Recuadro de anuncio flotante -->
+  <div id="anuncio-float">
+    <iframe
+      src="https://soythiagosuarez.github.io/boostystudio/anuncio"
+      frameborder="0"
+      scrolling="no"
+      style="overflow:hidden;"
+    ></iframe>
+    <button id="cerrar-anuncio" title="Cerrar anuncio">&times;</button>
+  </div>
+  <script>
+    // Mostrar el anuncio con animación al cargar
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        document.getElementById('anuncio-float').classList.add('show');
+      }, 500); // Espera breve para la animación
+    });
+
+    // Cerrar el anuncio con animación
+    document.addEventListener('click', function(e) {
+      if (e.target.id === 'cerrar-anuncio') {
+        const anuncio = document.getElementById('anuncio-float');
+        anuncio.classList.remove('show');
+        anuncio.classList.add('hide');
+        setTimeout(() => anuncio.style.display = 'none', 500); // Espera a que termine la animación
+      }
+    });
+
+    // Menú hamburguesa
+    document.querySelector('.menu-toggle').onclick = function() {
+      document.querySelector('.navigation ul').classList.toggle('open');
+    };
+  </script>
+</body>
+</html>

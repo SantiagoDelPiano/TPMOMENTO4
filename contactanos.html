@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos - Tangos de Dionisio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html">Tangos de Dionisio</a>
+    <nav class="navigation">
+      <button class="menu-toggle">☰</button>
+      <ul>
+        <li class="nav-item"><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li class="nav-item"><a href="productos.html">Productos</a></li>
+        <li class="nav-item"><a href="contactanos.html">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección con layout de dos columnas (imagen a la izquierda, formulario a la derecha) -->
+    <section class="contact-section">
+      <!-- Columna izquierda: Imagen (utilizando la imagen enviada) -->
+      <div class="contact-image">
+        <img src="contactanosvino.jpeg" alt="Contacto - Disfrutá el vino al aire libre">
+      </div>
+      <!-- Columna derecha: Formulario de contacto -->
+      <div class="contact-form">
+        <h2>Contáctanos</h2>
+        <form id="contact-form">
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+          <input type="email" id="email" name="email" placeholder="Tu email" required>
+          <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+          <button type="submit">Enviar</button>
+          <p id="response"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Teléfono:</strong> +54 11 1234-5678</p>
+ 
+    <p><strong>Síguenos:</strong> 
+       |
+      <a href="https://www.instagram.com/tangosdedionisio?igsh=enZnZm85cnU1cTJi" target="_blank">Instagram</a> |
+     
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

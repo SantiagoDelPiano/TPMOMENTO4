@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentación Final - Tangos de Dionisio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #181818;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide-container {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      display: none;
+      background: #fff;
+      color: #222;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      max-width: 520px;
+      width: 94vw;
+      min-height: 340px;
+      padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      animation: fadein 0.5s;
+    }
+    .slide.active {
+      display: block;
+    }
+    .slide h1, .slide h2 {
+      color: #8b2f43;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+    }
+    .slide h1 {
+      font-size: 2.1rem;
+    }
+    .slide h2 {
+      font-size: 1.4rem;
+    }
+    .slide p {
+      font-size: 1.08rem;
+    }
+    .slide img {
+      max-width: 90%;
+      border-radius: 10px;
+      margin: 1.2rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .presupuesto {
+      background: #fbeee6;
+      border-left: 5px solid #8b2f43;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 1.08rem;
+      color: #222;
+      text-align: left;
+      display: inline-block;
+    }
+    .presupuesto strong {
+      color: #8b2f43;
+    }
+    .slide-nav {
+      position: absolute;
+      top: 50%;
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      left: 0;
+      z-index: 10;
+    }
+    .slide-nav button {
+      pointer-events: all;
+      background: #8b2f43;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 2.2rem;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: background 0.2s;
+      margin: 0 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-nav button:active {
+      background: #6a1f32;
+    }
+    .slide .subtitle {
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      margin-top: -0.8rem;
+    }
+    ul, ol {
+      text-align: left;
+      max-width: 340px;
+      margin: 1.2rem auto 0 auto;
+      font-size: 1.08rem;
+    }
+    footer {
+      text-align: center;
+      color: #bbb;
+      font-size: 1rem;
+      margin: 2rem 0 1rem 0;
+    }
+    @media (max-width: 600px) {
+      .slide {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        min-height: 220px;
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 2.5rem auto 0 auto;
+      }
+      .slide-nav {
+        position: static;
+        width: 100%;
+        justify-content: center;
+        margin: 1.2rem 0 0 0;
+        top: auto;
+        left: auto;
+        transform: none;
+        display: flex;
+      }
+      .slide-nav button {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+        margin: 0 16px;
+      }
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .capturas-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.capturas-flex img {
+  max-width: 180px;
+  width: 45vw;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+@media (max-width: 600px) {
+  .capturas-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .capturas-flex img {
+    max-width: 90vw;
+    width: 90vw;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <!-- Slide 1: Portada -->
+    <div class="slide active">
+      <h1>Tangos de Dionisio</h1>
+      <div class="subtitle">Examen Final - Desarrollo Web</div>
+      <p>Presentación interactiva<br>Adaptada a computadoras y celulares</p>
+      <img src="tango-bottle.jpeg" alt="Portada Tangos de Dionisio">
+    </div>
+    <!-- Slide 2: Descripción -->
+    <div class="slide">
+      <h2>Descripción del Proyecto</h2>
+      <div class="subtitle">¿Qué es Tangos de Dionisio?</div>
+      <p>
+        Sitio web desarrollado como trabajo final para la materia, con el objetivo de ofrecer una experiencia atractiva y funcional tanto en computadoras como en celulares. El sitio presenta la marca, productos, contacto y un anuncio flotante, todo adaptado a dispositivos móviles.
+      </p>
+    </div>
+    <!-- Slide 3: Mapa del sitio -->
+    <div class="slide">
+      <h2 style="text-align:center;">Mapa del sitio</h2>
+      <img src="Estructuradepagina.png" alt="Mapa del sitio" style="display:block; margin: 0 auto; max-width: 90vw; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+    </div>
+    <!-- Slide 3: Funcionalidades -->
+    <div class="slide">
+      <h2>Funcionalidades Principales</h2>
+      <ul>
+        <li>Diseño responsive (adaptado a computadoras y celulares)</li>
+        <li>Menú de navegación con hamburguesa en móvil</li>
+        <li>Sección de productos y contacto</li>
+        <li>Anuncio flotante con botón de cierre</li>
+        <li>Pop-up de imagen con carrusel</li>
+        <li>Enlaces a redes sociales</li>
+      </ul>
+    </div>
+    <!-- Slide 4: Tecnologías -->
+    <div class="slide">
+      <h2>Tecnologías Utilizadas</h2>
+      <ul>
+        <li>HTML5 y CSS3</li>
+        <li>JavaScript (para menú y pop-up)</li>
+        <li>Diseño mobile-first</li>
+      </ul>
+    </div>
+    <!-- Slide 5: Wireframe -->
+    <div class="slide">
+      <h2 style="text-align:center;">Wireframe de baja fidelidad</h2>
+      <img src="imagen wireframe.png" alt="Wireframe de baja fidelidad" style="display:block; margin: 0 auto; max-width: 90vw; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+    </div>
+    <!-- Slide 5: Capturas -->
+    <!-- Slide 6: Capturas -->
+<div class="slide">
+  <h2>Capturas del Sitio</h2>
+  <div class="subtitle">Vista escritorio y móvil</div>
+  <div class="capturas-flex">
+    <img src="tango-bottle.jpeg" alt="Captura sitio escritorio">
+    <img src="hijo-de-osiris.jpeg" alt="Captura sitio móvil">
+  </div>
+</div>
+    <!-- Slide 7: Presupuesto -->
+    <div class="slide">
+      <h2>Presupuesto</h2>
+      <div class="subtitle">Detalle de costos del desarrollo</div>
+      <div class="presupuesto">
+        <ul>
+          <li><strong>Diseño y Maquetación:</strong> $20.000</li>
+          <li><strong>Programación HTML, CSS y JS:</strong> $25.000</li>
+          <li><strong>Adaptación Responsive:</strong> $10.000</li>
+          <li><strong>Testing y Ajustes:</strong> $5.000</li>
+        </ul>
+        <p><strong>Total:</strong> $60.000</p>
+      </div>
+    </div>
+   
+    <!-- Navegación -->
+    <div class="slide-nav">
+      <button id="prevSlide" title="Anterior">&#8592;</button>
+      <button id="nextSlide" title="Siguiente">&#8594;</button>
+    </div>
+  </div>
+  <footer>
+    Presentación realizada por Santiago Del Piano - Examen Final 2025
+  </footer>
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    function showSlide(idx) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    }
+    document.getElementById('prevSlide').onclick = () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    };
+    document.getElementById('nextSlide').onclick = () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    };
+    // Swipe para móvil
+    let startX = null;
+    document.querySelector('.slide-container').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+    document.querySelector('.slide-container').addEventListener('touchend', e => {
+      if (startX === null) return;
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 60) document.getElementById('prevSlide').click();
+      if (startX - endX > 60) document.getElementById('nextSlide').click();
+      startX = null;
+    });
+  </script>
+</body>
+</html>

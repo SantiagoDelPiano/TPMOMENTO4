@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuncio Adaptable</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            height: 100vh;
+            background-color: #584343;
+        }
+
+        .ad-container {
+            display: flex;
+            flex-direction: row; /* Alinea los elementos horizontalmente */
+            justify-content: space-between; /* Distribuye el espacio entre los elementos */
+            align-items: center; /* Centra verticalmente los elementos */
+            text-align: left; /* Alinea el texto a la izquierda */
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #bdb182;
+            padding: 10px;
+            width: 728px; /* Tamaño fijo para escritorio */
+            height: 90px; /* Tamaño fijo para escritorio */
+            overflow: hidden; /* Asegura que el contenido no se desborde */
+        }
+
+        .anuncio-title {
+            font-family: 'Papyrus', fantasy;
+            font-size: 1.5rem; /* Tamaño de fuente ajustado */
+            font-weight: bold;
+            color: black;
+            flex: 1; /* Ocupa espacio proporcional */
+            text-align: center; /* Centra el texto dentro de su espacio */
+        }
+
+        .ad-container h1 {
+            font-size: 1rem; /* Tamaño de fuente ajustado */
+            margin: 0;
+            color: #333;
+            flex: 1; /* Ocupa espacio proporcional */
+            text-align: center; /* Centra el texto dentro de su espacio */
+        }
+
+        .ad-container button {
+            padding: 5px 10px; /* Botón más pequeño */
+            font-size: 0.9rem; /* Tamaño de fuente ajustado */
+            color: #fff;
+            background-color: #8b2f43;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1; /* Ocupa espacio proporcional */
+            text-align: center; /* Centra el botón dentro de su espacio */
+        }
+
+        .ad-container button:hover {
+            background-color: #6a1f32;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 727px) {
+            body {
+                justify-content: center;
+                align-items: flex-start; /* Alinea el contenido en la parte superior */
+            }
+
+            .ad-container {
+                flex-direction: column; /* Cambia a columna para móviles */
+                justify-content: space-around; /* Distribuye el contenido verticalmente */
+                align-items: center;
+                width: 300px; /* Tamaño fijo para móviles */
+                height: 600px; /* Tamaño fijo para móviles */
+                padding: 20px;
+            }
+
+            .anuncio-title {
+                font-size: 1.8rem; /* Ajusta el tamaño de fuente para móviles */
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .ad-container h1 {
+                font-size: 1.2rem; /* Ajusta el tamaño de fuente */
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .ad-container button {
+                font-size: 1.2rem; /* Ajusta el tamaño del botón */
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-container">
+        <p class="anuncio-title">Los Tangos de Dionisio</p>
+        <h1>El vino de los dioses</h1>
+        <button>Comprar</button>
+    </div>
+</body>
+</html>
