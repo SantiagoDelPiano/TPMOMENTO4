@@ -687,3 +687,10 @@ body.productos-page {
   font-size: 1.15rem !important;
 }
 }
+/* Achica el footer solo en la página de contacto */
+body.contacto-page .footer {
+  padding: 8px 0;
+  margin-top: 20px;
+  border-top: 1px solid #bbb;
+  font-size: 0.95rem;
+}
